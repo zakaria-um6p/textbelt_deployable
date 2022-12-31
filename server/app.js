@@ -75,7 +75,7 @@ app.get('/providers/:region', (req, res) => {
   res.send(providers[req.params.region]);
 });
 
-app.post('/text', (req, res) => {
+app.all('/text', (req, res) => {
   if (req.body.getcarriers != null
       && (req.body.getcarriers === '1'
        || req.body.getcarriers.toLowerCase() === 'true')) {
@@ -90,11 +90,11 @@ app.post('/text', (req, res) => {
   textRequestHandler(req, res, number, req.body.carrier, 'us');
 });
 
-app.post('/canada', (req, res) => {
+app.all('/canada', (req, res) => {
   textRequestHandler(req, res, stripPhone(req.body.number), req.body.carrier, 'canada');
 });
 
-app.post('/intl', (req, res) => {
+app.all('/intl', (req, res) => {
   textRequestHandler(req, res, stripPhone(req.body.number), req.body.carrier, 'intl');
 });
 
