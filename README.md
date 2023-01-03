@@ -56,7 +56,7 @@ finally, test your live server:
 
 ```sh
 curl -X GET https://your-textbelt-server.onrender.com/text \
-  -d number=your-cell-phone \
+  -d number="your-cell-phone" \
   -d "message=A free text message with Textbelt on Render"
 ```
 
